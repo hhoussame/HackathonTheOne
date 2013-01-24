@@ -4,42 +4,28 @@
 
 <meta charset="UTF-8">
 <script type="text/javascript" src="js/profile.js"></script>
-
+<link rel="stylesheet" type="text/css" href="css/profile.css" media="screen" />
 <title>Insert title here</title>
 
 </head>
 <body>
-<div id="profile-master-id">
-</div>
-
-
-<div id="profile-div1" style="width: 50%;margin-left:25% ;height: 0px;color: aqua;border-style: solid;border-color: red;border-top-style:none;transition:width 2s;-moz-transition:height 2s; /* Firefox 4 */;-webkit-transition:height 2s; /* Safari and Chrome */;-o-transition:height 2s; /* Opera */">
-<div style="height : 10%; border: medium;border-bottom-style: solid;border-bottom-color: red;" >
-<img  style="position: relative;height : 90%;left: 10%;top: 5%" src="img/Chrysanthemum.jpg">
-<textarea rows="1" cols="20" style="border:none;background-color:transparent;  position: relative;height:75%;width:50%; left: 25%;top: 0%"> 
-   Comments text 
-</textarea> 
-
-</div>
-<div style="height : 50%; border: medium;border-bottom-style: solid;border-bottom-color: red;" >
-
-<img  style="position: relative;height:75%;width:50%; left: 25%;top: 20%" src="img/Koala2.jpg">
-</div>
-<div style="height : 40%; border: medium;border-bottom-style: solid;border-bottom-color: red;" >
-
-<textarea rows="5" cols="50" style="border:none;position: relative;height:75%;width:50%; left: 25%;top: 20%"> 
-   Comments text 
-</textarea> 
-</div>
-
+<div id="profile-master-id" style ="" >
 </div>
 
 <script type="text/javascript">
 var div = document.getElementById('profile-master-id');
-var div1 = creatImageLike();
-div.innerHTML = div.innerHTML +div1 +div1 ;
+for(var i=0;i<20;i++){
+var div1 = creatImageLike(i);
+var div2 =createImageLikexpanded(i);
+div.innerHTML = div.innerHTML +div1 +div2;
+}
 </script>
 
-<!-- </div> -->
 </body>
 </html>
+
+
+
+  
+ 	
+  

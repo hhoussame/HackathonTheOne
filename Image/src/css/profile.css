@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+.smallLikeImage{
+width: 50%;
+margin-left:25% ;
+height: 0px;
+border-style: solid ;
+border-color: red;
+border-bottom-style: solid;
+border-top-style:none;
+transition:width 2s;
+-moz-transition:height 2s;
+-webkit-transition:height 2s;
+
+-o-transition:height 2s;
+}
