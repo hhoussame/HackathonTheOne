@@ -4,12 +4,26 @@
 
 <meta charset="UTF-8">
 <script type="text/javascript" src="js/profile.js"></script>
+
 <title>Insert title here</title>
 
 </head>
 <body>
-<div id="profile-div1" style="width: 50%;height: 33px;color: aqua;border-style: solid;border-color: red;-moz-border-radius: 100px / 160px; -webkit-border-radius: 100px / 160px; border-radius: 100px / 160px;">
-<img alt="" src="img/Koala.jpg">
+<div id="profile-master-id">
 </div>
+<script type="text/javascript">
+var div = document.getElementById('profile-master-id');
+var div1 = creatImageLike();
+div.innerHTML = div.innerHTML +div1 +div1 ;
+</script>
+
+<div id="profile-div1" style="width: 50%;margin-left:25% ;height: 200px;color: aqua;border-style: solid;border-color: red;border-top-style:none;">
+
+
+<img style="height:50%; width:75%; position:relative; top: 12% ;left : 12% "; src="img/like.jpg">
+<br>
+<div >
+</div>
+<!-- </div> -->
 </body>
 </html>
