@@ -4,6 +4,8 @@
 
 <meta charset="UTF-8">
 <script type="text/javascript" src="js/profile.js"></script>
+<script type="text/javascript" src="js/dummyData.js"></script>
+<script type="text/javascript" src="js/dao.js"></script>
 <link rel="stylesheet" type="text/css" href="css/profile.css" media="screen" />
 <title>Insert title here</title>
 
@@ -14,9 +16,11 @@
 
 <script type="text/javascript">
 var div = document.getElementById('profile-master-id');
-for(var i=0;i<20;i++){
-var div1 = creatImageLike(i);
-var div2 =createImageLikexpanded(i);
+var user = getUserById(1);
+
+for(var i=0;i<user.likedImagesList.length;i++){
+var div1 = creatImageLike(user.likedImagesList[i]);
+var div2 =createImageLikexpanded(user.likedImagesList[i]);
 div.innerHTML = div.innerHTML +div1 +div2;
 }
 </script>
