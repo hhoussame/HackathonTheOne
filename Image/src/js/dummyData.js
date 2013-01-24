@@ -68,18 +68,21 @@ users = {
 			id : 0,
 			name : "mec mac",
 			portrait : "img/Chrysanthemum.jpg",
+			interestsList:[],
 			imagesList : [],
 			likedImagesList:[],
 		},{
 			id : 1,
 			name : "houssame hajji",
 			portrait : "img/Chrysanthemum.jpg",
+			interestsList:[],
 			imagesList : [],
 			likedImagesList:[0,1,2],
 		},{
 			id : 2,
 			name : "younes chahbi",
 			portrait : "img/Chrysanthemum.jpg",
+			interestsList:[],
 			imagesList : [],
 			likedImagesList:[],
 		}]
