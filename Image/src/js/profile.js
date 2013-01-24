@@ -1,21 +1,57 @@
-function creatImageLike() {
-	return "<div style=\"width: 50%;margin-left:25% ;height: 33px;color: aqua;border-style: solid;border-color: red;-moz-border-radius: 100px / 160px; -webkit-border-radius: 100px / 160px; border-radius: 100px / 160px;\">"
-	
-	+"<img style=\"height:75%; position:relative; top: 12% ;left: 2% \" src=\"img/Koala1.jpg\">"
-	
-	+"<img style=\"height:75%; width:4%; position:relative; top: 12% ;margin-left : 46% \" src=\"img/like.jpg\">"
-	+"<label  style=\"height:75%; position:relative; top: 12% ;left: 50% \">"
-	+"</label>"
-	+"<button onclick= \"expandImageLike()\" style=\"height:75%;width:4%; position:relative; background-image:url('./img/minusicone.png');margin-left: 90%;top: -75%\" >"
+function creatImageLike(i) {
+	return "<div style=\"width: 50%;margin-left:25% ;margin-top:1%;height: 50px;background-color: blue;border-style: solid;border-bottom-style:none ;border-color: red;\">"
+//	-moz-border-radius: 100px / 160px; -webkit-border-radius: 100px / 160px; border-radius: 100px / 160px;
+	+"<table border=\"0\"width=\" 100%\"; height=\"100%\">"
+	+"<tr>"
+	+"<td width = \"45%\">"
+	+"<img style=\"height:75%; position:relative  \" src=\"img/Koala1.jpg\">"
+	+"</td>"
+	+"<td width = \"5%\">"
+	+"<img style=\"height:75%;  position:relative\" src=\"img/like.jpg\">"
+	+"</td>"
+	+"<td width = \"45%\">"
+	+"<input type=\"text\" value=\"Story\" style=\"border:none;background-color:transparent; height:75%;\">"
+	+"</td>"
+	+"<td width = \"5%\">"
+	+"<button onclick= \"{expandImageLike("+i+")}\" style=\" height:30px; position:relative; background-image:url('./img/minusicone.png')\" >"
 	+"</button>"
+
+	+"</td>"
+
+	+"</tr>"
+	+"</table>" 
 	+"</div>";
 }
-function expandImageLike() {
-	var div2 = document.getElementById('profile-div1');
+
+function createImageLikexpanded(i){
+	return "<div id=\"profile-div"+i+"\" style=\"width: 50%;margin-left:25% ;height: 0px;border-style: solid ;border-color: red; border-bottom-style: solid;border-top-style:none;transition:width 2s;-moz-transition:height 2s; /* Firefox 4 */;-webkit-transition:height 2s; /* Safari and Chrome */;-o-transition:height 2s; /* Opera */\">"
+	+"<div style=\"height : 10%; border: medium;border-style: none;border-bottom-color: red;\" >"
+
+	+"<img  style=\"position: relative;height : 90%;left: 0.5%;top: 5%\" src=\"img/Chrysanthemum.jpg\">"
++"<input type=\"text\" value=\"texte\" style=\"border:none;background-color:transparent; position: relative;height:75%;width:50%; left: 0%;bottom: 25%\">"
+        				
++"</div>"
++"<div style=\"height : 50%; border: medium;border-bottom-style: none;border-bottom-color: red;\" >"
+
++"<img  style=\"position: relative;height:75%;width:50%; left: 25%;top: 20%\" src=\"img/Koala2.jpg\">"
++"</div>"
++"<div style=\"height : 40%; border: medium;border-bottom-style: none;border-bottom-color: red;\" >"
++"<input type=\"text\" value=\"Story\" style=\"border:none;background-color:transparent; position: relative;height:15%;width:50%; left: 2%;top: 2%\">"
++"<br>"
++"<textarea rows=\"5\" cols=\"50\" style=\"border:none;-moz-appearance:none;position: relative;background: transparent; overflow: auto;height:75%;width:50%; left: 25%;top: 20%\"> "
++"Comments text "
+   +"</textarea> "
++"</div>";
+}
+
+function expandImageLike(i) {
+	var div2 = document.getElementById('profile-div' + i);
 	if(div2.style.height=="0px"){
 	div2.style.height="400px";
+	// div2.style.border ="solid";
 	}else{
 		div2.style.height="0px";
+		// div2.style.border ="none";
 	}
 
 }
