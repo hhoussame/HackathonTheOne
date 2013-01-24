@@ -6,7 +6,16 @@ function creatImageLike() {
 	+"<img style=\"height:75%; width:4%; position:relative; top: 12% ;margin-left : 46% \" src=\"img/like.jpg\">"
 	+"<label  style=\"height:75%; position:relative; top: 12% ;left: 50% \">"
 	+"</label>"
-	+"<button style=\"height:75%;width:4%; position:relative; background-image:url('./img/minusicone.png');margin-left: 90%;top: -75%\" >"
+	+"<button onclick= \"expandImageLike()\" style=\"height:75%;width:4%; position:relative; background-image:url('./img/minusicone.png');margin-left: 90%;top: -75%\" >"
 	+"</button>"
 	+"</div>";
+}
+function expandImageLike() {
+	var div2 = document.getElementById('profile-div1');
+	if(div2.style.height=="0px"){
+	div2.style.height="400px";
+	}else{
+		div2.style.height="0px";
+	}
+
 }
