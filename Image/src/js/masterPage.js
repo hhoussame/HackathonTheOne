@@ -14,7 +14,9 @@
 // corresponds to an interest of the users interests.
 //once all the interests are skimmed, we should have a list of all the images
 // corresponding to all of the interests of the user.
+//after that we need to show the collected images by using the drawing functions.
 
+//the following 3 functions concern users interests and related images
 function fetchInterests(userId) {
 	var interests = [];
 	var user = users.listUsers[userId];
@@ -22,39 +24,6 @@ function fetchInterests(userId) {
 		interests.push(user.interestsList[i]);
 	}
 	return interests;
-}
-
-function displayImgRow() {
-	var browserWidth = getWidth();
-}
-
-function getWidth() {
-    if (self.innerWidth) {
-       return self.innerWidth;
-    }
-    else if (document.documentElement && document.documentElement.clientHeight){
-        return document.documentElement.clientWidth;
-    }
-    else if (document.body) {
-        return document.body.clientWidth;
-    }
-    return 0;
-}
-
-function createImage(src) {
-	var imgHeight = "";
-	var imgWidth = "";
-	var css = "";
-	var imgHtml="<li>" +
-					"<a>" +
-						"<img src='" + src +
-					"</a>" +
-				"</li>";
-	return imgHtml;
-}
-
-function fetchImgDetails(imgId) {
-	
 }
 
 function fetchInterestImgs(inter) {
@@ -72,4 +41,118 @@ function fetchInterestImgs(inter) {
 		}
 	}
 	return imgIdList;
+}
+
+function fetchImgDetails(imgId) {
+	var img = Images.listImages[imgId];
+	var id = img.id;
+	var src = img.src;
+	var story = img.story;
+	var title = img.title;
+	var ownerId = img.ownerId;
+	var likes = img.likes;
+	var comments = img.comments;
+	var interestsList = img.interestsList;
+	var imgDetList = [id,src,story,title,ownerId,likes,comments,interestsList];
+	return imgDetList;
+}
+// end first section functions
+
+//the following 2 function concern the nbr of images per row to display
+function DecideNbrImgsPerRow() {
+	var browsWidth = getWidth();
+	var canvas = (80 / 100) * browsWidth;
+	var imgWidth = 200;
+	if (canvas < 500) {
+		return 3;
+	} else {
+		return Math.floor(canvas / imgWidth);
+	}
+}
+
+function getWidth() {
+    if (self.innerWidth) {
+       return self.innerWidth;
+    }
+    else if (document.documentElement && document.documentElement.clientHeight){
+        return document.documentElement.clientWidth;
+    }
+    else if (document.body) {
+        return document.body.clientWidth;
+    }
+    return 0;
+}
+// end 2 functions
+
+//the following 2 functions concern the html canvas for an image and a row 
+function createImgsForRow(src) {
+//	var imgHeight = "";
+//	var imgWidth = "";
+	
+	var css = "";
+	var imgsHtml = "";
+	for (var i=0; i<src.length; i++) {
+		imgsHtml +="<li style:'" + css + "'>" +
+						"<a>" +
+							"<img src='" + src[i] +
+						"</a>" +
+					"</li>";
+	}
+	
+	return imgsHtml;
+}
+
+function createRow(imgsHtml) {
+	var css = "";
+	var rowHtml = "<ul style='" + css + "'>" +
+					imgsHtml +
+					"</ul>";
+	return rowHtml;
+				
+}
+// end 2 functions
+
+// the following function concerns the html of the whole page, might need to be broken down to
+// several functions
+function createPageHtml(userId) {
+	var interests = fetchInterests(userId);
+	var imgsId = []; 
+	var imgsSrc = [];
+	for (var i=0; i<interests.length; i++) {
+		imgsId.push(fetchInterestImgs[i]);
+		var imgDet = fetchImgDetails(imgsId[i]);
+		imgsSrc.push(imgDet[1]);
+	}
+	var src = [];
+	var nbrImgsRow = DecideNbrImgsPerRow();
+	var nbrOfRows = 0;
+	var imgsHtml = "";
+	var rowHtml = "";
+	var imgsIdLength = imgsId.length;
+	if (imgsIdLength >= nbrImgsRow) {
+		var division = imgsSrc.length / nbrImgsRow;
+		var integerPart = Math.floor(division);
+		nbrOfRows = (division == integerPart) ? division : integerPart + 1;
+		for (var l=0;l<nbrOfRows;l++) {
+			for (var j=0; j< nbrImgsRow; j++) {
+				var imgId = j + (l * nbrImgsRow);
+				src.push(imgsSrc[imgId]);
+			}
+			imgsHtml += createImgsForRow(src);
+			rowHtml += createRow(imgsHtml);
+		}
+	} else {
+		for (var j=0; j< imgsIdLength; j++) {
+			src.push(imgsSrc[j]);
+		}
+		imgsHtml += createImgsForRow(src);
+		rowHtml += createRow(imgsHtml);
+	}
+	displayPage(rowHtml);
+}
+
+function displayPage(htmlToDiplay){
+	var newElt= document.createElement("div");
+	newElt.innerHTML= htmlToDiplay;
+	document.getElementById("content").appendChild(newElt);
 }
