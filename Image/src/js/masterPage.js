@@ -20,20 +20,20 @@
 function fetchInterests(userId) {
 	var interests = [];
 	var user = users.listUsers[userId];
-	for (i; i<user.interestList.length; i++) {
+	for (var i=0; i<user.interestsList.length; i++) {
 		interests.push(user.interestsList[i]);
 	}
 	return interests;
 }
 
-function fetchInterestImgs(inter) {
+function fetchInterestImgs(intersId) {
 	var imgIdList = [];
 	var allImgs = Images.listImages;
 	for (var i=0; i<allImgs.length; i++) {
 		var interests = allImgs[i].interestsList;
 		for (var j=0; j<interests.length; j++) {
-			if (interests[j] == inter) { //maybe a switch here is better
-				imgList.push(allImgs[i].id);
+			if (interests[j] == intersId) { //maybe a switch here is better
+				imgIdList.push(allImgs[i].id);
 			} else {
 				//something to learn and 
 				//not to go through this image for the same interest again.
@@ -89,14 +89,15 @@ function createImgsForRow(src) {
 //	var imgHeight = "";
 //	var imgWidth = "";
 	
-	var css = "";
+	var css = "margin-left:20px;";
 	var imgsHtml = "";
 	for (var i=0; i<src.length; i++) {
-		imgsHtml +="<li style:'" + css + "'>" +
-						"<a>" +
-							"<img src='" + src[i] +
-						"</a>" +
-					"</li>";
+		imgsHtml +="<span style='" + css + "'>" +
+						"<a href='#'>" +
+							"<img src='" + 
+								src[i] +
+						"'></a>" +
+					"</span>";
 	}
 	
 	return imgsHtml;
@@ -104,9 +105,9 @@ function createImgsForRow(src) {
 
 function createRow(imgsHtml) {
 	var css = "";
-	var rowHtml = "<ul style='" + css + "'>" +
+	var rowHtml = "<div style='" + css + "'>" +
 					imgsHtml +
-					"</ul>";
+					"</div>";
 	return rowHtml;
 				
 }
@@ -119,7 +120,8 @@ function createPageHtml(userId) {
 	var imgsId = []; 
 	var imgsSrc = [];
 	for (var i=0; i<interests.length; i++) {
-		imgsId.push(fetchInterestImgs[i]);
+		var imgId = fetchInterestImgs(i); 
+		imgsId.push(imgId);
 		var imgDet = fetchImgDetails(imgsId[i]);
 		imgsSrc.push(imgDet[1]);
 	}
@@ -148,11 +150,12 @@ function createPageHtml(userId) {
 		imgsHtml += createImgsForRow(src);
 		rowHtml += createRow(imgsHtml);
 	}
-	displayPage(rowHtml);
+	return rowHtml;
 }
 
-function displayPage(htmlToDiplay){
+function displayPage(userId){
+	var htmlToDiplay = createPageHtml(userId);
 	var newElt= document.createElement("div");
 	newElt.innerHTML= htmlToDiplay;
-	document.getElementById("content").appendChild(newElt);
+	document.getElementById("container").appendChild(newElt);
 }

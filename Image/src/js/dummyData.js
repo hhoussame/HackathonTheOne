@@ -13,7 +13,7 @@ Images = {
 				numberComments : "",
 				commentersList : [ 11, 13 ]
 			},
-			interestsList : []
+			interestsList : ['0','1']
 		}, {
 			id : 1,
 			src : "img/Koala2.jpg",
@@ -61,14 +61,14 @@ Images = {
 			interestsList : []
 		}]
 
-};
+}
 idConnected : 1;
 users = {
 		listUsers : [ {
 			id : 0,
 			name : "mec mac",
 			portrait : "img/Chrysanthemum.jpg",
-			interestsList:[],
+			interestsList:['0','1'],
 			imagesList : [],
 			likedImagesList:[],
 		},{
@@ -86,4 +86,4 @@ users = {
 			imagesList : [],
 			likedImagesList:[],
 		}]
-};
+}

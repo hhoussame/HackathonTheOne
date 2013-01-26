@@ -2,28 +2,34 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- inlcude script files-->
+		<script type="text/javascript" src="js/masterPage.js"></script>
+		<script type="text/javascript" src="js/dummyData.js"></script>
+<!-- include css files-->
+		<link rel="stylesheet" type="text/css" href="css/masterPage.css" media="screen" />
 <title>Imagebook</title>
 </head>
-<body>
-	<header>
-		<h1>Title</h1> <!--  website name -->
-		<ul>
-			<li> <!-- this is where the image and name of user go-->
-				<img alt="" src="">
-				<span ></span> <!-- for an eventual arrow-->
+<body onload="displayPage(0)">
+	<header id="header" style="">
+		<ul style="position:relative; text-align:center;">
+			<li style=""> website name </li> <!--  website name -->
+			<li style="margin-left:10%;"> <!-- this is where the image and name of user go-->
+				<img alt="image" src="img/4.png" height="10px" width= "10px">
+				<span >user</span> <!-- for an eventual arrow-->
 				<ul> <!--these are the element once user name/image is :hover -->
 					<li> 
-						<a></a>
+						<a href="profile.html"> oh god your profile.. </a>
 					</li>
 					<li>
-						<a></a>
+						<a href="#"> something amazing </a>
 					</li>
 				</ul> <!--:hover elements end  -->
 			</li>
 		</ul>	
 	</header>
-	<div> <!-- container or wrapper/ all images -->
-		
+	<div id="container" style=""> <!-- container or wrapper/ all images -->
+		<br/>
+		<br/>
 	</div>
 	<button type="button">Top</button>
 </body>

@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+#header {
+	height:"20px";
+	margin: 0 10% 0 10%;
+	font-family: 'Georgia';
+	border: 1px solid #000;
+	border-radius:3px;
+	background-color: #FAFAFA;
+}
+
+#header ul {
+	list-style: none; /*no bullet point*/
+	margin:0;
+	padding:0;
+	color: #888;
+}
+
+#header ul li{
+	display: inline;
+	position: relative;
+	background-image: url('img/up-arrow.png');
+}
+
+#header li ul {
+	display: none;
+}
+
+#header ul li a {
+	display: block;
+	text-decoration: none;
+	margin: 3px 0 3px 0;
+	padding: 2px 3px;
+	border-right: 1px solid #385E0F;
+	border-left: 1px solid #385E0F;
+	border-radius: 0px;
+	white-space:nowrap;
+	font-size:12px;
+}
+
+#header li:hover ul {
+	display: block;
+	position: absolute;
+}
+
+#header ul li a:hover {
+	background:#888;
+	font-color:#888ccc;
+}
+
+#container {
+	margin: 0 5% 0 5%;
+}
